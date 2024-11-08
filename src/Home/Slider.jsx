@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { useDrag } from "@use-gesture/react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import "./slider.css";
+import "./Slider.css";
 import { fetchTopRatedMovies, fetchMovieTrailer } from "../api";
 
 const Slider = () => {
