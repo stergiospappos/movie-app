@@ -1,0 +1,154 @@
+/* Hero Section */
+
+.hero {
+  position: relative;
+  color: white;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: var(--gutter-vertical) var(--gutter-horizontal);
+
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+
+  text-align: left;
+}
+
+.hero__content {
+  max-width: 50ch;
+}
+.hero__description {
+  text-wrap: balance;
+}
+
+.hero__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+.hero__badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.hero__title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.hero__description {
+  font-size: 1em;
+  color: #d3d3d3;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 15px;
+  max-width: fit-content;
+}
+
+.hero__button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hero__button--watch {
+  background-color: #fff;
+  color: #141414;
+  border-radius: 5px;
+}
+
+.hero__button--info {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 5px;
+}
+
+.hero__button:hover {
+  transform: scale(1.05);
+}
+
+.hero__controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.hero__control {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.hero__control:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 0 15px;
+  }
+
+  .hero__title {
+    font-size: 2em;
+  }
+
+  .hero__description {
+    font-size: 0.9em;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+  }
+}
+
+.best-movies {
+  padding: var(--gutter-horizontal);
+}
+
+.best-movies > h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--gutter-vertical);
+}
