@@ -1,0 +1,162 @@
+.loading-container {
+  height: 100vh;
+  width: 100vw;
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element */
+}
+
+.single-movie {
+  display: flex;
+  flex-direction: column;
+}
+.single-movie--container {
+  padding-top: var(--gutter-vertical);
+}
+.single-movie h1 {
+  text-align: left;
+  font-size: var(--font-size-xl);
+  margin-bottom: calc(var(--gutter-vertical) / 4);
+}
+
+.first-details {
+  display: flex;
+  gap: 1em;
+  margin-bottom: calc(var(--gutter-vertical) / 4);
+}
+.image-video {
+  display: flex;
+  gap: 1em;
+}
+
+.image-video .movie-poster {
+  border-radius: 20px;
+  width: calc(100% / 4);
+}
+
+.image-video .trailer-container iframe {
+  border-radius: 20px;
+}
+
+.genres {
+  margin-top: calc(var(--gutter-vertical) / 4);
+}
+
+.movie-details > p {
+  margin-bottom: calc(var(--gutter-vertical) / 4);
+}
+.single-movie p {
+  text-align: left;
+}
+.single-movie h3 {
+  text-align: left;
+  margin-bottom: calc(var(--gutter-vertical) / 2);
+}
+
+.cast-member strong {
+  font-size: var(--font-size-sm);
+}
+.cast-member p {
+  margin-bottom: calc(var(--gutter-vertical) / 8);
+
+  font-size: var(--font-size-xs);
+}
+
+.movie-backdrop {
+  width: 100%;
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.movie-poster {
+}
+
+.movie-cast {
+  margin-top: 20px;
+}
+
+.cast-list {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.movie-details-info .tag {
+  font-weight: bold;
+}
+.cast-member {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.cast-image,
+.cast-image-placeholder {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 100px !important;
+  object-fit: cover !important;
+  margin-bottom: calc(var(--gutter-vertical) / 4);
+}
+
+.cast-image-placeholder {
+  width: 100px;
+  height: 150px;
+  background-color: #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.single-movie {
+  padding: var(--gutter-horizontal);
+}
+
+.desc {
+  text-align: center;
+  max-width: 80ch;
+  text-wrap: balance;
+  margin-bottom: calc(var(--gutter-vertical) / 2) !important;
+}
+
+.movie-trailer {
+  width: 100%;
+  /* Set your desired width */
+  height: calc(60vw * (9 / 16));
+  aspect-ratio: 16 / 9;
+  /* 16:9 aspect ratio */
+  max-width: 50vw;
+  /* Optional: limit the maximum width */
+  position: relative;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  .movie-trailer {
+    max-width: 100vw;
+  }
+  .cast-member {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+section > h3,
+.movie-controls {
+  margin-bottom: 50px;
+}
+
+.similar-movies {
+  padding: var(--gutter-horizontal);
+}

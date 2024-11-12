@@ -90,6 +90,13 @@ h1 {
   line-height: 100%;
 }
 
+h2 {
+  font-size: var(--font-size-xl);
+}
+h3 {
+  font-size: var(--font-size-lg);
+}
+
 p,
 a,
 li {

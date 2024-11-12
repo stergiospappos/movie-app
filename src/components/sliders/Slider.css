@@ -1,4 +1,7 @@
 /* General styling */
+.movie-slider a {
+  min-width: calc(100% / 5);
+}
 .movie-slider-container {
   width: 100%;
   margin: 0 auto;

@@ -144,11 +144,16 @@
   }
 }
 
-.best-movies {
+.movies-slider {
   padding: var(--gutter-horizontal);
 }
 
-.best-movies > h3 {
+.movies-slider > h3 {
   font-size: var(--font-size-xl);
-  margin-bottom: var(--gutter-vertical);
+  margin-bottom: calc(var(--gutter-vertical) / 2);
+}
+
+.slider-description {
+  margin-bottom: calc(var(--gutter-vertical) / 2);
+  max-width: 60ch;
 }

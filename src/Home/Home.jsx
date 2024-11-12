@@ -1,8 +1,22 @@
-import { ChevronRight, Play } from "lucide-react";
+import {
+  ChevronRight,
+  Play,
+  Popcorn,
+  CalendarArrowUp,
+  TrendingUp,
+  Star,
+} from "lucide-react";
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { fetchLatestPopularMovie, fetchTopRatedMovies } from "../api.js";
-import Slider from "./Slider.jsx";
+import TopRatedSlider from "../components/sliders/TopRated/TopRatedSlider.jsx";
+import UpcomingMoviesSlider from "../components/sliders/UpComing/UpComingSlider.jsx";
+import PopularMoviesSlider from "../components/sliders/Popular/PopularSlider.jsx";
+import NowPlayingMoviesSlider from "../components/sliders/NowPlaying/NowPlayingSlider.jsx";
+import NowPlayingDescription from "../components/sliders/NowPlaying/NowPlayingDescription.jsx";
+import UpComingDescription from "../components/sliders/UpComing/UpcomingDescription.jsx";
+import PopularDescription from "../components/sliders/Popular/PopularDescription.jsx";
+import TopRatedDescription from "../components/sliders/TopRated/TopRatedDescription.jsx";
 
 const Home = () => {
   const [latestMovie, setLatestMovie] = useState(null);
@@ -62,20 +76,34 @@ const Home = () => {
           </>
         )}
       </section>
-      <section className="best-movies">
-        <h3>Top Rated Movies</h3>
-        <Slider />
-        {/* <ul>
-          {topRatedMovies.map((movie) => (
-            <li key={movie.title}>
-              <h4>{movie.title}</h4>
-              <img src={movie.image} alt={movie.title} />
-              <p>{movie.description}</p>
-              <a href={movie.trailerLink}>Watch Trailer</a>
-              <p>Rating: {movie.rating}</p>
-            </li>
-          ))}
-        </ul> */}
+      <section className="movies-slider">
+        <h3>
+          <Popcorn /> Now Playing
+        </h3>
+        <NowPlayingDescription />
+        <NowPlayingMoviesSlider />
+      </section>
+      <section className="movies-slider">
+        <h3>
+          <CalendarArrowUp /> Up-Coming Movies
+        </h3>
+
+        <UpComingDescription />
+        <UpcomingMoviesSlider />
+      </section>
+      <section className="movies-slider">
+        <h3>
+          <TrendingUp /> Popular Movies
+        </h3>
+        <PopularDescription />
+        <PopularMoviesSlider />
+      </section>
+      <section className="movies-slider">
+        <h3>
+          <Star /> Top Rated Movies
+        </h3>
+        <TopRatedDescription />
+        <TopRatedSlider />
       </section>
     </main>
   );

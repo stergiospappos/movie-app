@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { useDrag } from "@use-gesture/react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import "./Slider.css";
-import { fetchTopRatedMovies, fetchMovieTrailer } from "../api";
+import "../Slider.css";
+import { fetchTopRatedMovies, fetchMovieTrailer } from "../../../api";
+import { Link } from "react-router-dom";
 
-const Slider = () => {
+const TopRatedSlider = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
@@ -39,13 +40,13 @@ const Slider = () => {
 
   const handleNext = () => {
     if (currentIndex < topRatedMovies.length - visibleCards) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + 2);
     }
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - 2);
     }
   };
 
@@ -80,28 +81,29 @@ const Slider = () => {
   return (
     <div className="movie-slider-container">
       <div className="movie-slider-wrapper" {...bind()}>
-        <div className="movie-slider" ref={sliderRef}>
+        <div key="TopRatedSlider" className="movie-slider" ref={sliderRef}>
           {topRatedMovies.map((movie, index) => (
-            <div
-              className="movie-card"
-              key={movie.title}
-              ref={index === 0 ? cardRef : null}
-              style={{
-                backgroundImage: `url(${movie.image})`,
-              }}
-            >
-              <div className="movie-rating">Rating: {movie.rating}</div>
-              <h3 className="movie-card-title">{movie.title}</h3>
-
-              <a
-                href={movie.trailerLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="movie-trailer-link"
+            <Link key={movie.title} to={`/movie/${movie.id}`}>
+              <div
+                className="movie-card"
+                ref={index === 0 ? cardRef : null}
+                style={{
+                  backgroundImage: `url(${movie.image})`,
+                }}
               >
-                Watch Trailer
-              </a>
-            </div>
+                <div className="movie-rating">Rating: {movie.rating}</div>
+                <h3 className="movie-card-title">{movie.title}</h3>
+
+                <a
+                  href={movie.trailerLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="movie-trailer-link"
+                >
+                  Watch Trailer
+                </a>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -120,4 +122,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default TopRatedSlider;
