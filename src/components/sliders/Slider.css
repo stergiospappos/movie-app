@@ -144,3 +144,41 @@
     flex: 0 0 calc(100% / 2);
   }
 }
+
+.movie-details-link {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: var(--font-size-sm);
+  text-decoration: none !important;
+  text-align: left;
+  position: relative;
+  max-width: fit-content;
+  z-index: 2;
+  padding: 5px 10px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+@media only screen and (max-width: 1440px) {
+  .movie-card {
+    min-width: calc(100% / 4);
+    flex: 0 0 calc(100% / 4);
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .movie-card {
+    min-width: calc(100% / 3);
+    flex: 0 0 calc(100% / 3);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .movie-card {
+    min-width: calc(100% / 2);
+    flex: 0 0 calc(100% / 2);
+  }
+}

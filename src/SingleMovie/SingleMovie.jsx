@@ -1,27 +1,28 @@
-// SingleMovie.jsx
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSingleMovie, fetchSimilarMovies } from "../api";
 import SimilarMoviesSlider from "./similarMoviesSlider";
+
 import "./SingleMovie.css";
 
 const SingleMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  const [similarMovies, setSimilarMovies] = useState([]); // Add this line
+  const [similarMovies, setSimilarMovies] = useState([]);
 
   useEffect(() => {
+    // Fetch movie details and similar movies
     fetchSingleMovie(id, setMovie);
-    fetchSimilarMovies(id, setSimilarMovies); // Now setSimilarMovies is defined
+    fetchSimilarMovies(id, setSimilarMovies);
   }, [id]);
 
-  if (!movie.title)
+  if (!movie.title) {
     return (
       <div className="loading-container">
         <p className="loading">Loading...</p>
       </div>
     );
+  }
 
   return (
     <main>
@@ -40,7 +41,6 @@ const SingleMovie = () => {
                 alt={`${movie.title} poster`}
                 className="movie-poster"
               />
-              {/* Trailer Video */}
               {movie.trailerLink && movie.trailerLink !== "#" && (
                 <div className="trailer-container">
                   <iframe
@@ -55,7 +55,6 @@ const SingleMovie = () => {
               )}
             </div>
             <p className="genres">{movie.genres}</p>
-
             <p className="desc">{movie.description}</p>
             <div className="movie-details-info">
               <p>
@@ -65,8 +64,6 @@ const SingleMovie = () => {
                 <span className="tag">Director:</span> {movie.creators}
               </p>
             </div>
-
-            {/* Cast Section */}
             <div className="movie-cast">
               <h3>Top Cast</h3>
               <div className="cast-list">
@@ -96,7 +93,8 @@ const SingleMovie = () => {
       </section>
       <section className="similar-movies">
         <h3>Similar Movies</h3>
-        <SimilarMoviesSlider />
+        <SimilarMoviesSlider movies={similarMovies} />{" "}
+        {/* Pass similarMovies as a prop */}
       </section>
     </main>
   );

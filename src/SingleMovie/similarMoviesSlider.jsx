@@ -74,18 +74,26 @@ const SimilarMoviesSlider = () => {
             });
 
             return (
-              <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <div
-                  className="movie-card"
-                  ref={index === 0 ? cardRef : null}
-                  style={{
-                    backgroundImage: `url(${movie.image})`,
-                  }}
+              <div
+                key={movie.id}
+                className="movie-card"
+                ref={index === 0 ? cardRef : null}
+                style={{
+                  backgroundImage: `url(${movie.image})`,
+                }}
+              >
+                <h3 className="movie-card-title">{movie.title}</h3>
+                <p className="movie-rating">Rating: {movie.rating}</p>
+
+                {/* Main Link for Movie Details */}
+                <Link
+                  to={`/movie/${movie.id}`}
+                  aria-label={`View details for ${movie.title}`}
+                  className="movie-details-link"
                 >
-                  <h3 className="movie-card-title">{movie.title}</h3>
-                  <p className="movie-rating">Rating: {movie.rating}</p>
-                </div>
-              </Link>
+                  View Details
+                </Link>
+              </div>
             );
           })}
         </div>

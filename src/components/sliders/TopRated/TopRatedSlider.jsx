@@ -83,27 +83,37 @@ const TopRatedSlider = () => {
       <div className="movie-slider-wrapper" {...bind()}>
         <div key="TopRatedSlider" className="movie-slider" ref={sliderRef}>
           {topRatedMovies.map((movie, index) => (
-            <Link key={movie.title} to={`/movie/${movie.id}`}>
-              <div
-                className="movie-card"
-                ref={index === 0 ? cardRef : null}
-                style={{
-                  backgroundImage: `url(${movie.image})`,
-                }}
-              >
-                <div className="movie-rating">Rating: {movie.rating}</div>
-                <h3 className="movie-card-title">{movie.title}</h3>
+            <div
+              key={movie.id}
+              className="movie-card"
+              ref={index === 0 ? cardRef : null}
+              style={{
+                backgroundImage: `url(${movie.image})`,
+              }}
+            >
+              <div className="movie-rating">Rating: {movie.rating}</div>
+              <h3 className="movie-card-title">{movie.title}</h3>
 
-                <a
-                  href={movie.trailerLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="movie-trailer-link"
-                >
-                  Watch Trailer
-                </a>
-              </div>
-            </Link>
+              {/* Main Link for Movie Details */}
+              <Link
+                to={`/movie/${movie.id}`}
+                aria-label={`View details for ${movie.title}`}
+                className="movie-details-link"
+              >
+                View Details
+              </Link>
+
+              {/* Trailer Link */}
+              <a
+                href={movie.trailerLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Watch trailer for ${movie.title}`}
+                className="movie-trailer-link"
+              >
+                Watch Trailer
+              </a>
+            </div>
           ))}
         </div>
       </div>

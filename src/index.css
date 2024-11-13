@@ -53,15 +53,13 @@
 
 body,
 html {
-  width: 100%;
-  height: 100%;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: "Notch Grotesk", serif;
   font-size: var(--font-size-sm);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: initial;
+  scroll-behavior: smooth;
 }
 
 img,
