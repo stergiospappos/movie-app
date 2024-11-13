@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - echo "Starting deployment..."
+    - /bin/cp -R * /home/spappos/portfolio.stergiospappos.me/
+    - echo "Deployment completed."
