@@ -1,6 +1,10 @@
 ---
 deployment:
   tasks:
-    - echo "Starting deployment..."
-    - /bin/cp -R * /home/spappos/portfolio.stergiospappos.me/
+    - echo "Installing dependencies..."
+    - /usr/local/bin/npm install
+    - echo "Building the Vite project..."
+    - /usr/local/bin/npm run build
+    - echo "Deploying to /home/spappos/portfolio.stergiospappos.me/"
+    - /bin/cp -R dist/* /home/spappos/portfolio.stergiospappos.me/
     - echo "Deployment completed."
