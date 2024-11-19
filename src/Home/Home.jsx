@@ -76,7 +76,7 @@ const Home = () => {
           </>
         )}
       </section>
-      <section className="movies-slider">
+      <section id="now-playing" className="movies-slider">
         <h3>
           <Popcorn /> Now Playing
         </h3>
@@ -91,7 +91,7 @@ const Home = () => {
         <UpComingDescription />
         <UpcomingMoviesSlider />
       </section>
-      <section className="movies-slider">
+      <section id="popular" className="movies-slider">
         <h3>
           <TrendingUp /> Popular Movies
         </h3>

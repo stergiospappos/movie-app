@@ -104,3 +104,122 @@
     display: flex;
   }
 }
+
+/* Search Bar Styling */
+.header__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__search-input {
+  padding: 10px;
+  font-size: 0.9em;
+  color: white;
+  -webkit-backdrop-filter: blur(1em);
+  backdrop-filter: blur(1em);
+  background-color: #efeeec26;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  outline: none;
+  transition: background-color var(--animation-fast),
+    border-color var(--animation-fast);
+}
+
+.header__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.header__search-input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.header__search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 101;
+}
+
+.header__search-item {
+  padding: 10px;
+  text-align: left;
+}
+
+.header__search-item a {
+  color: white;
+  text-decoration: none;
+  transition: color var(--animation-fast);
+}
+
+.header__search-item a:hover {
+  color: #e50914;
+}
+
+/* Ensure Dropdown Appears on Top */
+.header__search-dropdown:hover {
+  z-index: 200;
+}
+
+.header__search {
+  z-index: 200;
+  position: absolute;
+  top: 120%;
+  right: 9.5%;
+  transform: translate(50%, -50%);
+}
+.header__search-dropdown {
+  margin-top: 0.5em;
+}
+
+@media (max-width: 1990px) {
+  .header__search {
+    top: 120%;
+    right: 12%;
+  }
+}
+
+@media (max-width: 1700px) {
+  .header__search {
+    right: 12%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .header__search {
+    right: 13.5%;
+  }
+}
+
+@media (max-width: 1700px) {
+  .header__search {
+    right: 15%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header__search {
+    right: 14%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .header__search {
+    top: 140%;
+    right: 19%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__search {
+    top: 150%;
+    right: 20%;
+  }
+}

@@ -150,6 +150,9 @@
     gap: 1em;
     margin-bottom: 1em;
   }
+  .single-movie {
+    padding-top: calc(var(--gutter-horizontal) * 2);
+  }
 }
 
 section > h3,

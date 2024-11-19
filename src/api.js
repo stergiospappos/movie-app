@@ -23,6 +23,21 @@ async function fetchFromAPI(endpoint, params = {}, callback) {
   }
 }
 
+// Fetches movies matching a search query
+export function searchMovies(query, callback) {
+  fetchFromAPI("/search/movie", { query }, (data) => {
+    const searchResults = data.results.map((movie) => ({
+      id: movie.id,
+      title: movie.title,
+      description: movie.overview,
+      releaseDate: movie.release_date,
+      rating: movie.vote_average,
+      image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    }));
+    callback(searchResults);
+  });
+}
+
 // Fetches detailed data for a single movie by its ID
 export function fetchSingleMovie(id, callback) {
   // Fetch main movie details
